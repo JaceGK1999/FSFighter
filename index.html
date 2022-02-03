@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./styles/reset.css" />
+        <link rel="stylesheet" href="./styles/style.css" />
+        <link rel="stylesheet" href="./styles/home.css" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
-</head>
+    <body>
+        <main>
+            <div>
+                <h3>You have defeated <span id="kills">0</span> goblins!</h3>
+                <p>you have and not hit the goblin</p>
+            </div>
+            <div id="toon">
+                <p>You have <span id="toon-hp">10</span>hp!</p>
+                <img id="toon-img" src="./assets/Toon.png/" />
+            </div>
+            <div >
+                <form>
+                    <input name="goblin-name" />
+                    <button>New Challenger</button>
+                    <div class="goblins"></div>
+                </form>
+            </div>
+        </main>
 
-<body>
-   
-    <main>
-       
-    </main>
-    
-
-    <script type="module" src="./app.js"></script>
-</body>
-
+        <script type="module" src="./app.js"></script>
+    </body>
 </html>
