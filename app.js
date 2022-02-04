@@ -1,20 +1,21 @@
+import { renderGoblin } from './utils.js';
 // import functions and grab DOM elements
 const form = document.querySelector('form');
-import { renderGoblin } from './utils.js';
-
+const killCount = document.getElementById('kill-count');
+const toonHPEl = document.getElementById('toon-hp');
+const toonImgEl = document.querySelector('#toon-img');
+const goblinListEl = document.querySelector('.goblins');
 // let state
-//let defeatedGoblinsCount = 0;
-//let playerHP = 10;
+let kills = 0;
+let playerHP = 10;
 let goblins = [{ id: 1, name: 'Charles the Meek', hp: 1 }];
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    //   - User has supplied a name and submitted the form
+
     const data = new FormData(form);
 
     const goblinName = data.get('goblin-name');
-
-    //   - Make a new goblin object with that user input
 
     const newGoblin = {
         id: currentId,
@@ -23,12 +24,41 @@ form.addEventListener('submit', (e) => {
     };
     currentId++;
 
-    //   - Add that object to the array of goblins in state
     goblins.push(newGoblin);
 
     displayGoblins();
 });
-// set event listeners
-// get user input
-// use user input to update state
-// update DOM to reflect the new state
+
+function goblinClickHandler(goblinData) {
+    if (goblinData.hp <= 0) return;
+    if (Math.random() < 0.4) {
+        goblinData.hp--;
+        alert('you hit ' + goblinData.name);
+    } else {
+        alert('you tried to hit ' + goblinData.name + ' but missed');
+    }
+    if (Math.random() < 0.6) {
+        playerHP--;
+        alert(goblinData.name + ' hit you!');
+    } else {
+        alert(goblinData.name + ' tried to hit you but missed!');
+    }
+
+    if (goblinData.hp === 0) {
+        kills++;
+    }
+
+    if (playerHP === 0) {
+        toonImgEl.classList.add('game-over');
+        alert('GAME OVER!!!');
+    }
+
+    toonHPEl.textContent = playerHP;
+    kills.textContent = killCount;
+
+    const hpEl = document.getElementById(`goblin-hp-${goblinData.id}`);
+    hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
+
+    const faceEl = document.getElementById(`goblin-face-${goblinData.id}`);
+    faceEl.textContent = goblinData.hp > 0 ? '😈' : '🔥';
+}

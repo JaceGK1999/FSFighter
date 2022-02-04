@@ -13,7 +13,7 @@ function renderGoblin(goblinData) {
     hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
 
     faceEl.id = `goblin-face-${goblinData.id}`;
-    faceEl.textContent = goblinData.hp > 0 ? '😈' : '🔥';
+    faceEl.textContent = goblinData.hp > 0 ? (Img = './assets/Goblin.png') : '🔥';
 
     if (goblinData.hp < 0) {
         goblinEl.classList.add('dead');
