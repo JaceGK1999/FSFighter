@@ -2,7 +2,7 @@ export { renderGoblin };
 
 function renderGoblin(goblinData) {
     const goblinEl = document.createElement('div');
-    const faceEl = document.createElement('p');
+    const faceEl = document.createElement('img');
     const nameEl = document.createElement('p');
     const hpEl = document.createElement('p');
 
@@ -13,7 +13,8 @@ function renderGoblin(goblinData) {
     hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
 
     faceEl.id = `goblin-face-${goblinData.id}`;
-    faceEl.textContent = goblinData.hp > 0 ? (Img = './assets/Goblin.png') : '🔥';
+    const goblinImage = goblinData.hp > 0 ? '.assets/Goblin.png' : '.assests/Ghostie.png';
+    faceEl.setAttribute('src', goblinImage);
 
     if (goblinData.hp < 0) {
         goblinEl.classList.add('dead');

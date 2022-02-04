@@ -9,6 +9,7 @@ const goblinListEl = document.querySelector('.goblins');
 let kills = 0;
 let playerHP = 10;
 let goblins = [{ id: 1, name: 'Charles the Meek', hp: 1 }];
+let currentId = 2;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ form.addEventListener('submit', (e) => {
     const newGoblin = {
         id: currentId,
         name: goblinName,
-        hp: Math.ceil(Math.random() * 5),
+        hp: Math.ceil(Math.random() * 10),
     };
     currentId++;
 
@@ -54,7 +55,7 @@ function goblinClickHandler(goblinData) {
     }
 
     toonHPEl.textContent = playerHP;
-    kills.textContent = killCount;
+    killCount.textContent = kills;
 
     const hpEl = document.getElementById(`goblin-hp-${goblinData.id}`);
     hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
@@ -62,3 +63,19 @@ function goblinClickHandler(goblinData) {
     const faceEl = document.getElementById(`goblin-face-${goblinData.id}`);
     faceEl.textContent = goblinData.hp > 0 ? '😈' : '🔥';
 }
+
+function displayGoblins() {
+    goblinListEl.textContent = '';
+
+    for (let goblin of goblins) {
+        const goblinEl = renderGoblin(goblin);
+
+        goblinEl.addEventListener('click', () => {
+            goblinClickHandler(goblin);
+        });
+
+        goblinListEl.append(goblinEl);
+    }
+}
+
+displayGoblins();
