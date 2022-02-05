@@ -13,7 +13,8 @@ function renderGoblin(goblinData) {
     hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
 
     faceEl.id = `goblin-face-${goblinData.id}`;
-    const goblinImage = goblinData.hp > 0 ? '.assets/Goblin.png' : '.assests/Ghostie.png';
+    const goblinImage = goblinData.hp > 0 ? './assets/Goblin.jpg' : './assets/Ghostie.png';
+    console.log(goblinImage, 'img');
     faceEl.setAttribute('src', goblinImage);
 
     if (goblinData.hp < 0) {

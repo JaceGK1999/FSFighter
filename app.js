@@ -8,8 +8,11 @@ const goblinListEl = document.querySelector('.goblins');
 // let state
 let kills = 0;
 let playerHP = 10;
-let goblins = [{ id: 1, name: 'Charles the Meek', hp: 1 }];
-let currentId = 2;
+let goblins = [
+    { id: 1, name: 'Charles the Meek', hp: 1 },
+    { id: 2, name: 'Biff the Buff', hp: 15 },
+];
+let currentId = 3;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -61,7 +64,8 @@ function goblinClickHandler(goblinData) {
     hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
 
     const faceEl = document.getElementById(`goblin-face-${goblinData.id}`);
-    faceEl.textContent = goblinData.hp > 0 ? '😈' : '🔥';
+    const goblinImage = goblinData.hp > 0 ? './assets/Goblin.jpg' : './assets/Ghostie.png';
+    faceEl.setAttribute('src', goblinImage);
 }
 
 function displayGoblins() {

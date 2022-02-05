@@ -39,7 +39,7 @@ main {
     margin-bottom: 20px;
 }
 
-section {
+/* section {
     background-color: var(--color5);
     max-width: 80%;
     display: flex;
@@ -51,7 +51,7 @@ section {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
-}
+} */
 
 
 
