@@ -34,6 +34,7 @@ form.addEventListener('submit', (e) => {
 });
 
 function goblinClickHandler(goblinData) {
+    if (playerHP <= 0) return;
     if (goblinData.hp <= 0) return;
     if (Math.random() < 0.4) {
         goblinData.hp--;
