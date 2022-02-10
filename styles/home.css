@@ -1,1 +1,41 @@
 /* add home page styles here */
+
+img {
+    width: 200px;
+    height: 200px;
+}
+form {
+    padding: 20px;
+    display: flex;
+    justify-self: end;
+    height: 150px;
+    width: 700px;
+}
+.adventurer-stats {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.goblin {
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    justify-self: flex-end;
+    font-size: 3rem;
+    background-color: aqua;
+}
+.goblin-stats {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
